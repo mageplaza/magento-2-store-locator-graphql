@@ -1,0 +1,167 @@
+
+type Query {
+    MpStoreLocatorLocations(
+        filter: MpStoreLocatorLocationsFilterInput @doc(description: "Identifies which order attributes to search for and return.")
+        pageSize: Int = 5 @doc(description: "How many items should show on the page?")
+        currentPage: Int = 1 @doc(description: "Allow page number to start with 1")
+    ):MpStoreLocatorLocationsOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\Locations") @doc(description: "The query searches for order attributes that match the criteria specified in the filter.")
+    MpStoreLocatorConfig(
+        storeId: String @doc(description: "Get Config by Store")
+    ):MpStoreLocatorConfigOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\ConfigData") @doc(description: "The query searches for config that match the store in the filter.")
+    MpStoreLocatorMapTemplate(
+        storeId: String @doc(description: "Get Map Template by Store")
+    ):String @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\MapTemplate") @doc(description: "The query searches for config that match the store in the filter.")
+    MpStoreLocatorCustomerPickupLocationList(
+        cartId: String!
+    ):MpStoreLocatorLocationsOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\PickupLocations") @doc(description: "The query searches for config that match the cart in the filter.")
+    MpStoreLocatorGuestPickupLocationList(
+        cartId: String!
+    ):MpStoreLocatorLocationsOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\GuestPickupLocations") @doc(description: "The query searches for config that match the cart in the filter.")
+    MpStoreLocatorPickupData(
+        storeId: String
+    ):MpStoreLocatorPickupDataOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\PickupData") @doc(description: "The query searches for config that match the store in the filter.")
+    MpStoreLocatorGetLocationId:String @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\GetLocationId") @doc(description: "The query searches for config that match the store in the filter.")
+}
+
+type Mutation {
+    SaveLocationMpStoreLocator(input: MpStoreLocatorLocationData!): Boolean @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\SaveLocation")
+}
+
+input MpStoreLocatorLocationData {
+    locationId: String
+    timePickup: String
+}
+
+input MpStoreLocatorLocationsFilterInput {
+    location_id: FilterTypeInput @doc(description: "Location Id")
+    name: FilterTypeInput @doc(description: "Name")
+    status: FilterTypeInput @doc(description: "Status")
+    description: FilterTypeInput @doc(description: "Description")
+    store_ids: FilterTypeInput @doc(description: "Store Ids")
+    city: FilterTypeInput @doc(description: "City")
+    country: FilterTypeInput @doc(description: "Country")
+    street: FilterTypeInput @doc(description: "Street")
+    state_province: FilterTypeInput @doc(description: "State Province")
+    postal_code: FilterTypeInput @doc(description: "Postal Code")
+    url_key: FilterTypeInput @doc(description: "URL key")
+    latitude: FilterTypeInput @doc(description: "Latitude")
+    longitude: FilterTypeInput @doc(description: "Longitude")
+    phone_one: FilterTypeInput @doc(description: "Phone One")
+    phone_two: FilterTypeInput @doc(description: "Phone Two")
+    website: FilterTypeInput @doc(description: "Website")
+    is_config_website: FilterTypeInput @doc(description: "Is Config Website")
+    fax: FilterTypeInput @doc(description: "Fax")
+    email: FilterTypeInput @doc(description: "Email")
+    images: FilterTypeInput @doc(description: "Images")
+    is_default_store: FilterTypeInput @doc(description: "Is Default Store")
+    time_zone: FilterTypeInput @doc(description: "Time Zone")
+    is_config_time_zone: FilterTypeInput @doc(description: "Is Config Time Zone")
+    sort_order: FilterTypeInput @doc(description: "Sort Order")
+    created_at: FilterTypeInput @doc(description: "Created At")
+    updated_at: FilterTypeInput @doc(description: "Updated At")
+    product_ids: FilterTypeInput @doc(description: "Product Ids")
+    is_show_product_page: FilterTypeInput @doc(description: "Is Show Product Page")
+    is_selected_all_product: FilterTypeInput @doc(description: "Is Selected All Product")
+}
+type MpStoreLocatorLocationsOutput {
+    total_count: Int @doc(description: "The total number of results returned when a query is applied"),
+    items: [MpStoreLocatorLocation] @doc(description: "Order attributes data is satisfied")
+}
+
+type MpStoreLocatorLocation {
+    location_id: String @doc(description: "Location Id")
+    name: String @doc(description: "Name")
+    status: String @doc(description: "Status")
+    description: String @doc(description: "Description")
+    store_ids: String @doc(description: "Store Ids")
+    city: String @doc(description: "City")
+    country: String @doc(description: "Country")
+    street: String @doc(description: "Street")
+    state_province: String @doc(description: "State Province")
+    postal_code: String @doc(description: "Postal Code")
+    url_key: String @doc(description: "URL key")
+    latitude: String @doc(description: "Latitude")
+    longitude: String @doc(description: "Longitude")
+    phone_one: String @doc(description: "Phone One")
+    phone_two: String @doc(description: "Phone Two")
+    website: String @doc(description: "Website")
+    is_config_website: String @doc(description: "Is Config Website")
+    fax: String @doc(description: "Fax")
+    email: String @doc(description: "Email")
+    images: String @doc(description: "Images")
+    is_default_store: String @doc(description: "Is Default Store")
+    time_zone: String @doc(description: "Time Zone")
+    is_config_time_zone: String @doc(description: "Is Config Time Zone")
+    sort_order: String @doc(description: "Sort Order")
+    created_at: String @doc(description: "Created At")
+    updated_at: String @doc(description: "Updated At")
+    product_ids: String @doc(description: "Product Ids")
+    is_show_product_page: String @doc(description: "Is Show Product Page")
+    is_selected_all_product: String @doc(description: "Is Selected All Product")
+}
+
+type MpStoreLocatorConfigOutput {
+    zoom: String
+    markerIcon: String
+    dataLocations: String
+    infowindowTemplatePath: String
+    listTemplatePath: String
+    Mageplaza_StoreLocator: String
+    KMLinfowindowTemplatePath: String
+    Mageplaza_StoreLocator: String
+    KMLlistTemplatePath: String
+    Mageplaza_StoreLocator: String
+    isFilter: String
+    isFilterRadius: String
+    locationIdDetail: String
+    urlSuffix: String
+    keyMap: String
+    router: String
+    isDefaultStore: String
+    defaultLat: String
+    defaultLng: String
+    locationsData: [MpStoreLocatorLocationsData]
+}
+
+type MpStoreLocatorLocationsData {
+    name: String
+    locationId: String
+    countryId: String
+    regionId: String
+    region: String
+    street: String
+    telephone: String
+    postcode: String
+    city: String
+    timeData: [MpStoreLocatorTimeData]
+    holidayData: [MpStoreLocatorHolidayData]
+}
+
+type MpStoreLocatorTimeData {
+    value: String
+    from: [String]
+    to: [String]
+    use_system_config: Int
+}
+
+type MpStoreLocatorHolidayData {
+    from: String
+    to: String
+}
+
+type MpStoreLocatorPickupDataOutput {
+    stores_map_url: String
+    location_session_url: String
+    locationsData: [MpStoreLocatorLocationsData]
+    pickupAfterDays: String
+}
+
+interface ProductInterface {
+    mp_pickup_locations: String
+}
+
+type CustomerOrder {
+    mp_time_pickup: String
+}
+
+
