@@ -57,8 +57,6 @@ input MpStoreLocatorLocationsFilterInput {
     time_zone: FilterTypeInput @doc(description: "Time Zone")
     is_config_time_zone: FilterTypeInput @doc(description: "Is Config Time Zone")
     sort_order: FilterTypeInput @doc(description: "Sort Order")
-    created_at: FilterTypeInput @doc(description: "Created At")
-    updated_at: FilterTypeInput @doc(description: "Updated At")
     product_ids: FilterTypeInput @doc(description: "Product Ids")
     is_show_product_page: FilterTypeInput @doc(description: "Is Show Product Page")
     is_selected_all_product: FilterTypeInput @doc(description: "Is Selected All Product")
