@@ -109,13 +109,13 @@ type MpStoreLocatorConfigOutput {
     Mageplaza_StoreLocator: String
     KMLlistTemplatePath: String
     Mageplaza_StoreLocator: String
-    isFilter: String
-    isFilterRadius: String
+    isFilter: Int
+    isFilterRadius: Int
     locationIdDetail: String
     urlSuffix: String
     keyMap: String
     router: String
-    isDefaultStore: String
+    isDefaultStore: Int
     defaultLat: String
     defaultLng: String
     locationsData: [MpStoreLocatorLocationsData]
