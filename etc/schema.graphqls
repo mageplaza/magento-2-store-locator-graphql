@@ -29,17 +29,17 @@ input MpStoreLocatorLocationData {
 }
 
 input MpStoreLocatorLocationsFilterInput {
-    location_id: FilterTypeInput @doc(description: "Location Id")
+    location_id: FilterTypeInput @doc(description: "Location ID")
     name: FilterTypeInput @doc(description: "Name")
     status: FilterTypeInput @doc(description: "Status")
     description: FilterTypeInput @doc(description: "Description")
-    store_ids: FilterTypeInput @doc(description: "Store Ids")
+    store_ids: FilterTypeInput @doc(description: "Store IDs")
     city: FilterTypeInput @doc(description: "City")
     country: FilterTypeInput @doc(description: "Country")
     street: FilterTypeInput @doc(description: "Street")
     state_province: FilterTypeInput @doc(description: "State Province")
     postal_code: FilterTypeInput @doc(description: "Postal Code")
-    url_key: FilterTypeInput @doc(description: "URL key")
+    url_key: FilterTypeInput @doc(description: "URL Key")
     latitude: FilterTypeInput @doc(description: "Latitude")
     longitude: FilterTypeInput @doc(description: "Longitude")
     phone_one: FilterTypeInput @doc(description: "Phone One")
@@ -53,7 +53,7 @@ input MpStoreLocatorLocationsFilterInput {
     time_zone: FilterTypeInput @doc(description: "Time Zone")
     is_config_time_zone: FilterTypeInput @doc(description: "Is Config Time Zone")
     sort_order: FilterTypeInput @doc(description: "Sort Order")
-    product_ids: FilterTypeInput @doc(description: "Product Ids")
+    product_ids: FilterTypeInput @doc(description: "Product IDs")
     is_show_product_page: FilterTypeInput @doc(description: "Is Show Product Page")
     is_selected_all_product: FilterTypeInput @doc(description: "Is Selected All Product")
 }
@@ -63,17 +63,17 @@ type MpStoreLocatorLocationsOutput {
 }
 
 type MpStoreLocatorLocation {
-    location_id: String @doc(description: "Location Id")
+    location_id: String @doc(description: "Location IDs")
     name: String @doc(description: "Name")
     status: String @doc(description: "Status")
     description: String @doc(description: "Description")
-    store_ids: String @doc(description: "Store Ids")
+    store_ids: String @doc(description: "Store IDs")
     city: String @doc(description: "City")
     country: String @doc(description: "Country")
     street: String @doc(description: "Street")
     state_province: String @doc(description: "State Province")
     postal_code: String @doc(description: "Postal Code")
-    url_key: String @doc(description: "URL key")
+    url_key: String @doc(description: "URL Key")
     latitude: String @doc(description: "Latitude")
     longitude: String @doc(description: "Longitude")
     phone_one: String @doc(description: "Phone One")
@@ -89,7 +89,7 @@ type MpStoreLocatorLocation {
     sort_order: String @doc(description: "Sort Order")
     created_at: String @doc(description: "Created At")
     updated_at: String @doc(description: "Updated At")
-    product_ids: String @doc(description: "Product Ids")
+    product_ids: String @doc(description: "Product IDs")
     is_show_product_page: String @doc(description: "Is Show Product Page")
     is_selected_all_product: String @doc(description: "Is Selected All Product")
 }
@@ -104,10 +104,10 @@ type MpStoreLocatorConfigOutput {
     KMLlistTemplatePath: String @doc(description: "KML Location list description html path")
     isFilter: Int @doc(description: "Is Filter enabled")
     isFilterRadius: Int @doc(description: "Is Filter current position")
-    locationIdDetail: String @doc(description: "Get Location Id from name")
+    locationIdDetail: String @doc(description: "Get Location ID from the route name")
     urlSuffix: String @doc(description: "URL suffix")
-    keyMap: String @doc(description: "Map api key")
-    router: String @doc(description: "URL key")
+    keyMap: String @doc(description: "Map API Key")
+    router: String @doc(description: "URL Key")
     isDefaultStore: Int @doc(description: "Is Default Store")
     defaultLat: String @doc(description: "Default Latitude")
     defaultLng: String @doc(description: "Default Longitude")
@@ -148,7 +148,7 @@ type MpStoreLocatorPickupDataOutput {
 }
 
 interface ProductInterface {
-    mp_pickup_locations: String @doc(description: "Pickup locations")
+    mp_pickup_locations: String @doc(description: "Pickup Locations")
 }
 
 type CustomerOrder {
