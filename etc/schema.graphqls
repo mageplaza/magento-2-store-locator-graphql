@@ -11,12 +11,9 @@ type Query {
     MpStoreLocatorMapTemplate(
         storeId: String @doc(description: "Get Map Template by Store")
     ):String @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\MapTemplate") @doc(description: "The query searches for config that match the store in the filter.")
-    MpStoreLocatorCustomerPickupLocationList(
+    MpStoreLocatorPickupLocationList(
         cartId: String!
     ):MpStoreLocatorLocationsOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\PickupLocations") @doc(description: "The query searches for config that match the cart in the filter.")
-    MpStoreLocatorGuestPickupLocationList(
-        cartId: String!
-    ):MpStoreLocatorLocationsOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\GuestPickupLocations") @doc(description: "The query searches for config that match the cart in the filter.")
     MpStoreLocatorPickupData(
         storeId: String
     ):MpStoreLocatorPickupDataOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\PickupData") @doc(description: "The query searches for config that match the store in the filter.")

@@ -23,13 +23,10 @@ declare(strict_types=1);
 
 namespace Mageplaza\StoreLocatorGraphQl\Model\Resolver;
 
-use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\GraphQl\Config\Element\Field;
-use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplaza\StoreLocator\Api\GuestLocationsInterface;
-use Mageplaza\StoreLocator\Api\LocationsInterface;
 use Mageplaza\StoreLocator\Helper\Data;
 use Mageplaza\StoreLocator\Model\LocationsRepository;
 
@@ -40,23 +37,13 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
 class PickupLocations implements ResolverInterface
 {
     /**
-     * @var SearchCriteriaBuilder
-     */
-    protected $searchCriteriaBuilder;
-
-    /**
      * @var LocationsRepository
      */
     protected $locationsRepository;
-
     /**
      * @var Data
      */
     protected $helperData;
-    /**
-     * @var LocationsInterface
-     */
-    protected $pickupLocations;
     /**
      * @var GuestLocationsInterface
      */
@@ -65,20 +52,17 @@ class PickupLocations implements ResolverInterface
     /**
      * PickupLocations constructor.
      * @param LocationsRepository $locationsRepository
-     * @param LocationsInterface $pickupLocations
      * @param GuestLocationsInterface $guestPickupLocations
      * @param Data $helperData
      */
     public function __construct(
         LocationsRepository $locationsRepository,
-        LocationsInterface $pickupLocations,
         GuestLocationsInterface $guestPickupLocations,
         Data $helperData
     )
     {
         $this->locationsRepository = $locationsRepository;
         $this->helperData          = $helperData;
-        $this->pickupLocations     = $pickupLocations;
         $this->guestPickupLocations = $guestPickupLocations;
     }
 
@@ -87,7 +71,7 @@ class PickupLocations implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
-        $result = $this->pickupLocations->getLocations($args['cartId']);
+        $result = $this->guestPickupLocations->getLocations($args['cartId']);
         return $this->getResult($result);
     }
 
