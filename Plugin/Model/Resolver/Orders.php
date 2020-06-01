@@ -38,25 +38,27 @@ class Orders
 
     /**
      * Orders constructor.
+     *
      * @param OrderRepository $orderRepository
      */
     public function __construct(
         OrderRepository $orderRepository
-    )
-    {
+    ) {
         $this->orderRepository = $orderRepository;
     }
 
     /**
      * @param \Magento\SalesGraphQl\Model\Resolver\Orders $orders
      * @param $result
+     *
      * @return mixed
      * @throws InputException
      * @throws NoSuchEntityException
      */
-    public function afterResolve(\Magento\SalesGraphQl\Model\Resolver\Orders $orders, $result) {
+    public function afterResolve(\Magento\SalesGraphQl\Model\Resolver\Orders $orders, $result)
+    {
         foreach ($result['items'] as &$item) {
-            $order = $this->orderRepository->get($item['id']);
+            $order                  = $this->orderRepository->get($item['id']);
             $item['mp_time_pickup'] = $order->getMpTimePickup();
         }
 

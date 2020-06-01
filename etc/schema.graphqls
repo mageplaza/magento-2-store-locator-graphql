@@ -1,4 +1,3 @@
-
 type Query {
     MpStoreLocatorLocations(
         filter: MpStoreLocatorLocationsFilterInput @doc(description: "Identifies which order attributes to search for and return.")
@@ -17,11 +16,11 @@ type Query {
     MpStoreLocatorPickupData(
         storeId: String
     ):MpStoreLocatorPickupDataOutput @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\PickupData") @doc(description: "The query searches for config that match the store in the filter.")
-    MpStoreLocatorGetLocationId:String @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\GetLocationId") @doc(description: "The query searches for config that match the store in the filter.")
+    MpStoreLocatorGetLocationId:String @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\GetLocationId") @doc(description: "Get location Id in checkout session.")
 }
 
 type Mutation {
-    SaveLocationMpStoreLocator(input: MpStoreLocatorLocationData!): Boolean @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\SaveLocation")
+    SaveLocationMpStoreLocator(input: MpStoreLocatorLocationData!): Boolean @resolver(class: "Mageplaza\\StoreLocatorGraphQl\\Model\\Resolver\\SaveLocation") @doc(description: "Save location data in checkout session.")
 }
 
 input MpStoreLocatorLocationData {
@@ -96,67 +95,64 @@ type MpStoreLocatorLocation {
 }
 
 type MpStoreLocatorConfigOutput {
-    zoom: String
-    markerIcon: String
-    dataLocations: String
-    infowindowTemplatePath: String
-    listTemplatePath: String
-    Mageplaza_StoreLocator: String
-    KMLinfowindowTemplatePath: String
-    Mageplaza_StoreLocator: String
-    KMLlistTemplatePath: String
-    Mageplaza_StoreLocator: String
-    isFilter: Int
-    isFilterRadius: Int
-    locationIdDetail: String
-    urlSuffix: String
-    keyMap: String
-    router: String
-    isDefaultStore: Int
-    defaultLat: String
-    defaultLng: String
-    locationsData: [MpStoreLocatorLocationsData]
+    zoom: String @doc(description: "Zoom Default")
+    markerIcon: String @doc(description: "Marker Icon URL")
+    dataLocations: String @doc(description: "Locations Data URL")
+    infowindowTemplatePath: String @doc(description: "Info window description html path")
+    listTemplatePath: String @doc(description: "Location list description html path")
+    KMLinfowindowTemplatePath: String @doc(description: "KML info window description html path")
+    KMLlistTemplatePath: String @doc(description: "KML Location list description html path")
+    isFilter: Int @doc(description: "Is Filter enabled")
+    isFilterRadius: Int @doc(description: "Is Filter current position")
+    locationIdDetail: String @doc(description: "Get Location Id from name")
+    urlSuffix: String @doc(description: "URL suffix")
+    keyMap: String @doc(description: "Map api key")
+    router: String @doc(description: "URL key")
+    isDefaultStore: Int @doc(description: "Is Default Store")
+    defaultLat: String @doc(description: "Default Latitude")
+    defaultLng: String @doc(description: "Default Longitude")
+    locationsData: [MpStoreLocatorLocationsData] @doc(description: "Locations Data")
 }
 
 type MpStoreLocatorLocationsData {
-    name: String
-    locationId: String
-    countryId: String
-    regionId: String
-    region: String
-    street: String
-    telephone: String
-    postcode: String
-    city: String
-    timeData: [MpStoreLocatorTimeData]
-    holidayData: [MpStoreLocatorHolidayData]
+    name: String @doc(description: "Name")
+    locationId: String @doc(description: "Location ID")
+    countryId: String @doc(description: "Country")
+    regionId: String @doc(description: "Region ID")
+    region: String @doc(description: "Region")
+    street: String @doc(description: "Street")
+    telephone: String @doc(description: "Telephone")
+    postcode: String @doc(description: "Postal Code")
+    city: String @doc(description: "City")
+    timeData: [MpStoreLocatorTimeData] @doc(description: "Open Time")
+    holidayData: [MpStoreLocatorHolidayData] @doc(description: "Holiday")
 }
 
 type MpStoreLocatorTimeData {
-    value: String
-    from: [String]
-    to: [String]
+    value: String @doc(description: "Day")
+    from: [String] @doc(description: "From")
+    to: [String] @doc(description: "To")
     use_system_config: Int
 }
 
 type MpStoreLocatorHolidayData {
-    from: String
-    to: String
+    from: String @doc(description: "From")
+    to: String @doc(description: "To")
 }
 
 type MpStoreLocatorPickupDataOutput {
-    stores_map_url: String
-    location_session_url: String
-    locationsData: [MpStoreLocatorLocationsData]
-    pickupAfterDays: String
+    stores_map_url: String @doc(description: "Stores Map URL")
+    location_session_url: String @doc(description: "Save location to session URL")
+    locationsData: [MpStoreLocatorLocationsData] @doc(description: "Locations Data")
+    pickupAfterDays: String @doc(description: "Available After")
 }
 
 interface ProductInterface {
-    mp_pickup_locations: String
+    mp_pickup_locations: String @doc(description: "Pickup locations")
 }
 
 type CustomerOrder {
-    mp_time_pickup: String
+    mp_time_pickup: String @doc(description: "Store Pickup Time")
 }
 
 

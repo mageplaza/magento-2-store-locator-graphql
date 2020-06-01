@@ -46,17 +46,16 @@ class SaveLocation implements ResolverInterface
      */
     private $locationsRepository;
 
-
     /**
-     * SaveAttributes constructor.
+     * SaveLocation constructor.
+     *
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
      */
     public function __construct(
         LocationsRepository $locationsRepository,
         Data $helperData
-    )
-    {
+    ) {
         $this->helperData          = $helperData;
         $this->locationsRepository = $locationsRepository;
     }

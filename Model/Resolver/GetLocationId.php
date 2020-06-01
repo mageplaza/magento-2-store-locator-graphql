@@ -28,7 +28,6 @@ use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplaza\StoreLocator\Helper\Data;
-use Mageplaza\StoreLocator\Model\Api\Data\Location;
 use Mageplaza\StoreLocator\Model\LocationsRepository;
 
 /**
@@ -46,17 +45,16 @@ class GetLocationId implements ResolverInterface
      */
     private $locationsRepository;
 
-
     /**
-     * SaveAttributes constructor.
+     * GetLocationId constructor.
+     *
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
      */
     public function __construct(
         LocationsRepository $locationsRepository,
         Data $helperData
-    )
-    {
+    ) {
         $this->helperData          = $helperData;
         $this->locationsRepository = $locationsRepository;
     }

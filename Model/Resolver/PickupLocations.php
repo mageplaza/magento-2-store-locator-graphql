@@ -51,6 +51,7 @@ class PickupLocations implements ResolverInterface
 
     /**
      * PickupLocations constructor.
+     *
      * @param LocationsRepository $locationsRepository
      * @param GuestLocationsInterface $guestPickupLocations
      * @param Data $helperData
@@ -59,10 +60,9 @@ class PickupLocations implements ResolverInterface
         LocationsRepository $locationsRepository,
         GuestLocationsInterface $guestPickupLocations,
         Data $helperData
-    )
-    {
-        $this->locationsRepository = $locationsRepository;
-        $this->helperData          = $helperData;
+    ) {
+        $this->locationsRepository  = $locationsRepository;
+        $this->helperData           = $helperData;
         $this->guestPickupLocations = $guestPickupLocations;
     }
 
@@ -72,12 +72,13 @@ class PickupLocations implements ResolverInterface
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
         $result = $this->guestPickupLocations->getLocations($args['cartId']);
+
         return $this->getResult($result);
     }
 
     /**
      * @param $searchResult
-     * @param $args
+     *
      * @return array
      */
     public function getResult($searchResult)

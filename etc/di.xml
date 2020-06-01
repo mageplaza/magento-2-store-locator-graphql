@@ -31,6 +31,6 @@
         </arguments>
     </type>
     <type name="Magento\SalesGraphQl\Model\Resolver\Orders">
-        <plugin name="mp_store_locatore_add_pickup_time_data" type="Mageplaza\StoreLocatorGraphQl\Plugin\Model\Resolver\Orders"/>
+        <plugin name="mp_store_locator_add_pickup_time_data" type="Mageplaza\StoreLocatorGraphQl\Plugin\Model\Resolver\Orders"/>
     </type>
 </config>

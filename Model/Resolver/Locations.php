@@ -33,7 +33,7 @@ use Mageplaza\StoreLocator\Helper\Data;
 use Mageplaza\StoreLocator\Model\LocationsRepository;
 
 /**
- * Class Attributes
+ * Class Locations
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
 class Locations implements ResolverInterface
@@ -54,7 +54,8 @@ class Locations implements ResolverInterface
     protected $helperData;
 
     /**
-     * Attributes constructor.
+     * Locations constructor.
+     *
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
@@ -85,6 +86,7 @@ class Locations implements ResolverInterface
 
     /**
      * @param array $args
+     *
      * @throws GraphQlInputException
      */
     public function validate($args)
@@ -101,6 +103,7 @@ class Locations implements ResolverInterface
     /**
      * @param SearchResultsInterface $searchResult
      * @param array $args
+     *
      * @return array
      * @throws GraphQlInputException
      */

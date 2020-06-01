@@ -36,12 +36,10 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  */
 class ConfigData implements ResolverInterface
 {
-
     /**
      * @var LocationsRepository
      */
     protected $locationsRepository;
-
     /**
      * @var Data
      */
@@ -53,6 +51,7 @@ class ConfigData implements ResolverInterface
 
     /**
      * ConfigData constructor.
+     *
      * @param RequestInterface $request
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
@@ -62,9 +61,9 @@ class ConfigData implements ResolverInterface
         LocationsRepository $locationsRepository,
         Data $helperData
     ) {
-        $this->locationsRepository   = $locationsRepository;
-        $this->helperData            = $helperData;
-        $this->request = $request;
+        $this->locationsRepository = $locationsRepository;
+        $this->helperData          = $helperData;
+        $this->request             = $request;
     }
 
     /**
@@ -75,6 +74,7 @@ class ConfigData implements ResolverInterface
         $params = $this->request->getParams();
         $params = array_merge($params, $args);
         $this->request->setParams($params);
+
         return $this->locationsRepository->getDataConfigLocation();
     }
 }

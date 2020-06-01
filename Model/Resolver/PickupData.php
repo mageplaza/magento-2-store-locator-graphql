@@ -47,14 +47,14 @@ class PickupData implements ResolverInterface
 
     /**
      * ConfigData constructor.
+     *
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
      */
     public function __construct(
         LocationsRepository $locationsRepository,
         Data $helperData
-    )
-    {
+    ) {
         $this->locationsRepository = $locationsRepository;
         $this->helperData          = $helperData;
     }

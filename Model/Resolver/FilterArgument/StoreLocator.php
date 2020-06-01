@@ -35,17 +35,17 @@ use Mageplaza\StoreLocator\Helper\Data;
 class StoreLocator implements FieldEntityAttributesInterface
 {
     /**
+     * @var Data
+     */
+    protected $helperData;
+    /**
      * @var ConfigInterface
      */
     private $config;
 
     /**
-     * @var Data
-     */
-    protected $helperData;
-
-    /**
      * StoreLocator constructor.
+     *
      * @param ConfigInterface $config
      * @param Data $helperData
      */

@@ -1,23 +1,23 @@
 {
-  "name": "mageplaza/module-store-locator-graphql",
-  "description": "Magento 2 Store Locator GraphQl Extension",
-  "type": "magento2-module",
-  "version": "1.0.0",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Mageplaza",
-      "email": "support@mageplaza.com",
-      "homepage": "https://www.mageplaza.com",
-      "role": "Technical Support"
-    }
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "mageplaza/module-store-locator-graphql",
+    "description": "Magento 2 Store Locator GraphQl Extension",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mageplaza",
+            "email": "support@mageplaza.com",
+            "homepage": "https://www.mageplaza.com",
+            "role": "Technical Support"
+        }
     ],
-    "psr-4": {
-      "Mageplaza\\StoreLocatorGraphQl\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mageplaza\\StoreLocatorGraphQl\\": ""
+        }
     }
-  }
 }

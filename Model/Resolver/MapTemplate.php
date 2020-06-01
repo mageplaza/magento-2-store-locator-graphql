@@ -23,7 +23,6 @@ declare(strict_types=1);
 
 namespace Mageplaza\StoreLocatorGraphQl\Model\Resolver;
 
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
@@ -36,7 +35,6 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  */
 class MapTemplate implements ResolverInterface
 {
-
     /**
      * @var LocationsRepository
      */
@@ -46,13 +44,10 @@ class MapTemplate implements ResolverInterface
      * @var Data
      */
     protected $helperData;
-    /**
-     * @var RequestInterface
-     */
-    private $request;
 
     /**
-     * Attributes constructor.
+     * MapTemplate constructor.
+     *
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
      */
@@ -60,8 +55,8 @@ class MapTemplate implements ResolverInterface
         LocationsRepository $locationsRepository,
         Data $helperData
     ) {
-        $this->locationsRepository   = $locationsRepository;
-        $this->helperData            = $helperData;
+        $this->locationsRepository = $locationsRepository;
+        $this->helperData          = $helperData;
     }
 
     /**
