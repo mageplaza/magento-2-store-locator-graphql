@@ -27,7 +27,6 @@ use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\Resolver\Argument\SearchCriteria\Builder as SearchCriteriaBuilder;
-use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplaza\StoreLocator\Helper\Data;
 use Mageplaza\StoreLocator\Model\LocationsRepository;
@@ -36,7 +35,7 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  * Class Locations
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
-class Locations implements ResolverInterface
+class Locations extends AbstractResolver
 {
     /**
      * @var SearchCriteriaBuilder
@@ -44,30 +43,20 @@ class Locations implements ResolverInterface
     protected $searchCriteriaBuilder;
 
     /**
-     * @var LocationsRepository
-     */
-    protected $locationsRepository;
-
-    /**
-     * @var Data
-     */
-    protected $helperData;
-
-    /**
      * Locations constructor.
      *
-     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      */
     public function __construct(
-        SearchCriteriaBuilder $searchCriteriaBuilder,
         LocationsRepository $locationsRepository,
-        Data $helperData
+        Data $helperData,
+        SearchCriteriaBuilder $searchCriteriaBuilder
     ) {
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
-        $this->locationsRepository   = $locationsRepository;
-        $this->helperData            = $helperData;
+
+        parent::__construct($locationsRepository, $helperData);
     }
 
     /**
@@ -75,6 +64,8 @@ class Locations implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
+        parent::resolve($field, $context, $info, $value, $args);
+
         $this->validate($args);
         $searchCriteria = $this->searchCriteriaBuilder->build('mp_store_locator', $args);
         $searchCriteria->setCurrentPage($args['currentPage']);

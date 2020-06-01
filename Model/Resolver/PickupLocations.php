@@ -24,7 +24,6 @@ declare(strict_types=1);
 namespace Mageplaza\StoreLocatorGraphQl\Model\Resolver;
 
 use Magento\Framework\GraphQl\Config\Element\Field;
-use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplaza\StoreLocator\Api\GuestLocationsInterface;
 use Mageplaza\StoreLocator\Helper\Data;
@@ -34,16 +33,8 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  * Class PickupLocations
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
-class PickupLocations implements ResolverInterface
+class PickupLocations extends AbstractResolver
 {
-    /**
-     * @var LocationsRepository
-     */
-    protected $locationsRepository;
-    /**
-     * @var Data
-     */
-    protected $helperData;
     /**
      * @var GuestLocationsInterface
      */
@@ -53,17 +44,17 @@ class PickupLocations implements ResolverInterface
      * PickupLocations constructor.
      *
      * @param LocationsRepository $locationsRepository
-     * @param GuestLocationsInterface $guestPickupLocations
      * @param Data $helperData
+     * @param GuestLocationsInterface $guestPickupLocations
      */
     public function __construct(
         LocationsRepository $locationsRepository,
-        GuestLocationsInterface $guestPickupLocations,
-        Data $helperData
+        Data $helperData,
+        GuestLocationsInterface $guestPickupLocations
     ) {
-        $this->locationsRepository  = $locationsRepository;
-        $this->helperData           = $helperData;
         $this->guestPickupLocations = $guestPickupLocations;
+
+        parent::__construct($locationsRepository, $helperData);
     }
 
     /**
@@ -71,6 +62,7 @@ class PickupLocations implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
+        parent::resolve($field, $context, $info, $value, $args);
         $result = $this->guestPickupLocations->getLocations($args['cartId']);
 
         return $this->getResult($result);

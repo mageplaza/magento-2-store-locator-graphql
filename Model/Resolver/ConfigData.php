@@ -25,7 +25,6 @@ namespace Mageplaza\StoreLocatorGraphQl\Model\Resolver;
 
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\GraphQl\Config\Element\Field;
-use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplaza\StoreLocator\Helper\Data;
 use Mageplaza\StoreLocator\Model\LocationsRepository;
@@ -34,16 +33,8 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  * Class ConfigData
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
-class ConfigData implements ResolverInterface
+class ConfigData extends AbstractResolver
 {
-    /**
-     * @var LocationsRepository
-     */
-    protected $locationsRepository;
-    /**
-     * @var Data
-     */
-    protected $helperData;
     /**
      * @var RequestInterface
      */
@@ -52,18 +43,18 @@ class ConfigData implements ResolverInterface
     /**
      * ConfigData constructor.
      *
-     * @param RequestInterface $request
      * @param LocationsRepository $locationsRepository
      * @param Data $helperData
+     * @param RequestInterface $request
      */
     public function __construct(
-        RequestInterface $request,
         LocationsRepository $locationsRepository,
-        Data $helperData
+        Data $helperData,
+        RequestInterface $request
     ) {
-        $this->locationsRepository = $locationsRepository;
-        $this->helperData          = $helperData;
         $this->request             = $request;
+
+        parent::__construct($locationsRepository, $helperData);
     }
 
     /**
@@ -71,6 +62,8 @@ class ConfigData implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
+        parent::resolve($field, $context, $info, $value, $args);
+
         $params = $this->request->getParams();
         $params = array_merge($params, $args);
         $this->request->setParams($params);

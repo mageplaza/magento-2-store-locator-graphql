@@ -35,39 +35,15 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  * Class SaveLocation
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
-class SaveLocation implements ResolverInterface
+class SaveLocation extends AbstractResolver
 {
-    /**
-     * @var Data
-     */
-    protected $helperData;
-    /**
-     * @var LocationsRepository
-     */
-    private $locationsRepository;
-
-    /**
-     * SaveLocation constructor.
-     *
-     * @param LocationsRepository $locationsRepository
-     * @param Data $helperData
-     */
-    public function __construct(
-        LocationsRepository $locationsRepository,
-        Data $helperData
-    ) {
-        $this->helperData          = $helperData;
-        $this->locationsRepository = $locationsRepository;
-    }
 
     /**
      * @inheritdoc
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
-        if (!$this->helperData->isEnabled()) {
-            throw new GraphQlInputException(__('The module is disabled.'));
-        }
+        parent::resolve($field, $context, $info, $value, $args);
 
         return $this->locationsRepository->saveLocation(new Location($args['input']));
     }

@@ -33,37 +33,15 @@ use Mageplaza\StoreLocator\Model\LocationsRepository;
  * Class PickupData
  * @package Mageplaza\StoreLocatorGraphQl\Model\Resolver
  */
-class PickupData implements ResolverInterface
+class PickupData extends AbstractResolver
 {
-    /**
-     * @var LocationsRepository
-     */
-    protected $locationsRepository;
-
-    /**
-     * @var Data
-     */
-    protected $helperData;
-
-    /**
-     * ConfigData constructor.
-     *
-     * @param LocationsRepository $locationsRepository
-     * @param Data $helperData
-     */
-    public function __construct(
-        LocationsRepository $locationsRepository,
-        Data $helperData
-    ) {
-        $this->locationsRepository = $locationsRepository;
-        $this->helperData          = $helperData;
-    }
-
     /**
      * @inheritdoc
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
+        parent::resolve($field, $context, $info, $value, $args);
+
         return $this->locationsRepository->getPickupData(isset($args['storeId']) ? $args['storeId'] : null);
     }
 }
