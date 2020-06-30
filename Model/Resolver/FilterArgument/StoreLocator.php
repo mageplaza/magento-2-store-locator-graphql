@@ -38,6 +38,7 @@ class StoreLocator implements FieldEntityAttributesInterface
      * @var Data
      */
     protected $helperData;
+
     /**
      * @var ConfigInterface
      */
