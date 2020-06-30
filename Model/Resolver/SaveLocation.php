@@ -24,12 +24,8 @@ declare(strict_types=1);
 namespace Mageplaza\StoreLocatorGraphQl\Model\Resolver;
 
 use Magento\Framework\GraphQl\Config\Element\Field;
-use Magento\Framework\GraphQl\Exception\GraphQlInputException;
-use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
-use Mageplaza\StoreLocator\Helper\Data;
 use Mageplaza\StoreLocator\Model\Api\Data\Location;
-use Mageplaza\StoreLocator\Model\LocationsRepository;
 
 /**
  * Class SaveLocation
