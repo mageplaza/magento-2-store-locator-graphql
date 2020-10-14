@@ -1,3 +1,4 @@
+# Magento 2 Store Locator / Store Pickup GraphQL / PWA
 ## How to install
 Run the following command in Magento 2 root folder:
 
