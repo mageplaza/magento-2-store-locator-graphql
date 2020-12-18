@@ -1,5 +1,7 @@
 # Magento 2 Store Locator / Store Pickup GraphQL / PWA
 
+**Magento 2 Store Locator GraphQL is now a part of the Mageplaza Store Locator extension that adds GraphQL features. This supports PWA compatibility.**
+
 [Mageplaza Store Locator for Magento 2](https://www.mageplaza.com/magento-2-store-locator-extension/) enables stores to show their addresses on the Internet and customers to locate the nearest store locations. 
 
 The stores can get their locations to display online so that customers can easily find the store and conveniently see the location most convenient for them to come. They can get accurate directions to your store without any difficulty. That all your store’s locations show up when customers search on the Internet builds trust for them about your store. Imagine they can’t find your locations anywhere, you will be most likely to lose potential customers. 
@@ -12,9 +14,7 @@ The status of the store can be displayed according to the working hours and holi
 
 The local SEO is also supported. It helps local customers find the nearest store. Local SEO feature enables store owners to optimize for SEO by adjusting meta title, meta description, and keywords. 
 
-Besides, the extension also supports store pick-up. Customers can choose the store they want to drop by and hand-pick their orders. This adds another shipping method to the online store that brings convenience to the customers’ shopping process. Customers can set up the available time for pick-up so that it’s better for the store to prepare the products for customers. 
-
-What’s more, Magento 2 Store Locator GraphQL is now a part of Mageplaza Store Locator extension that adds GraphQL features. This supports PWA compatibility. 
+Besides, the extension also supports store pick-up. Customers can choose the store they want to drop by and hand-pick their orders. This adds another shipping method to the online store that brings convenience to the customers’ shopping process. Customers can set up the available time for pick-up so that it’s better for the store to prepare the products for customers.  
 
 ## 1. How to install
 Run the following command in Magento 2 root folder:
