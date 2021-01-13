@@ -96,6 +96,8 @@ type MpStoreLocatorLocation {
 
 type MpStoreLocatorConfigOutput {
     zoom: String @doc(description: "Zoom Default")
+    style: String @doc(description: "Map Style")
+    filter_radius: String @doc(description: "Filter Radius")
     markerIcon: String @doc(description: "Marker Icon URL")
     dataLocations: String @doc(description: "Locations Data URL")
     infowindowTemplatePath: String @doc(description: "Info window description html path")
