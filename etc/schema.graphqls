@@ -97,7 +97,10 @@ type MpStoreLocatorLocation {
 type MpStoreLocatorConfigOutput {
     zoom: String @doc(description: "Zoom Default")
     style: String @doc(description: "Map Style")
+    custom_style: String @doc(description: "Custom Map Style")
     filter_radius: String @doc(description: "Filter Radius")
+    default_radius: String @doc(description: "Default Radius")
+    distance_unit: String @doc(description: "Distance Unit")
     markerIcon: String @doc(description: "Marker Icon URL")
     dataLocations: String @doc(description: "Locations Data URL")
     infowindowTemplatePath: String @doc(description: "Info window description html path")
@@ -114,6 +117,17 @@ type MpStoreLocatorConfigOutput {
     defaultLat: String @doc(description: "Default Latitude")
     defaultLng: String @doc(description: "Default Longitude")
     locationsData: [MpStoreLocatorLocationsData] @doc(description: "Locations Data")
+    title: String @doc(description: "Title")
+    description: String @doc(description: "Description")
+    upload_default_image: String @doc(description: "Upload Default Image")
+    upload_head_image: String @doc(description: "Upload Head Image")
+    upload_head_icon: String @doc(description: "Upload Head Icon")
+    bottom_static_block: String @doc(description: "Bottom Static Block")
+    show_on: String @doc(description: "Show On")
+    enable_direction: Boolean @doc(description: "Enable Direction")
+    meta_title: String @doc(description: "Meta Title")
+    meta_description: String @doc(description: "Meta Description")
+    meta_keywords: String @doc(description: "Meta Keywords")
 }
 
 type MpStoreLocatorLocationsData {
