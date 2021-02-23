@@ -2,7 +2,7 @@
     "name": "mageplaza/module-store-locator-graphql",
     "description": "Magento 2 Store Locator GraphQl Extension",
     "type": "magento2-module",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "proprietary",
     "authors": [
         {
