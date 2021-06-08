@@ -129,6 +129,7 @@ type MpStoreLocatorConfigOutput {
     bottom_static_block: String @doc(description: "Bottom Static Block")
     show_on: String @doc(description: "Show On")
     enable_direction: Boolean @doc(description: "Enable Direction")
+    pagination: Boolean @doc(description: "Pagination")
     meta_title: String @doc(description: "Meta Title")
     meta_description: String @doc(description: "Meta Description")
     meta_keywords: String @doc(description: "Meta Keywords")
